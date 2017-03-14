@@ -1,0 +1,14 @@
+telecharger sbt
+mettre le dossier bin de sbt dans ton path
+télécharger scala ide
+
+lance le client sbt : sbt
+update
+run
+
+normalement là t'as hello world.
+
+Dans eclipse, import scala project
+
+si t'as un problème, dans sbt tu lances la commandes eclipse et tu f5 dans eclipse
+si problème de version de scala dans eclipse, http://stackoverflow.com/questions/34507966/spark-build-path-is-cross-compiled-with-an-incompatible-version-of-scala-2-10-0#34568196
