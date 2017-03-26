@@ -1,6 +1,7 @@
 package fr.akka_actors.messages
 
 import akka.actor.ActorRef
+import akka.actor.ActorSelection
 
 sealed trait Message
 

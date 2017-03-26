@@ -6,6 +6,7 @@ import scala.collection.immutable.List
 import akka.actor.ActorRef
 import fr.akka_actors.messages.AddNeighbours
 import fr.akka_actors.messages.SyncNeighbours
+import akka.actor.ActorSelection
 
 class Node(id : Int, var neighbours : Seq[ActorRef] = Nil) extends Actor {
 	
