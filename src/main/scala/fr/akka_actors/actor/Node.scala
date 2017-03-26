@@ -16,10 +16,12 @@ class Node(id : Int, var neighbours : Seq[String] = Nil) extends Actor {
 			neighbours = neighbours ++ newNeighbours
 
 		case TextMessage(res) =>
-			if(!visited) {				
+		  val newValue = res + 1
+		  
+			if (!visited) {				
 				println("Node " + id + " valeur : " + res)
 				neighbours.map { n =>
-				  context.actorSelection(n) ! TextMessage(res + 1)
+				  context.actorSelection(n) ! TextMessage(newValue)
 				}
 				visited = true
 			}
