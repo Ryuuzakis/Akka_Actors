@@ -22,7 +22,6 @@ class Node(id : Int, var neighbours : Seq[String] = Nil) extends Actor {
 				  context.actorSelection(n) ! TextMessage(res + 1)
 				}
 				visited = true
-			}
-				
+			}	
 	}
 }
