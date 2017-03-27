@@ -6,4 +6,4 @@ import akka.actor.ActorSelection
 sealed trait Message
 
 case class TextMessage(res: Int) extends Message
-case class AddNeighbours(neighbours: List[String]) extends Message
+case class AddNeighbours(neighbours: List[ActorRef]) extends Message

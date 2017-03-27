@@ -7,21 +7,23 @@ import akka.actor.ActorRef
 import fr.akka_actors.messages.AddNeighbours
 import akka.actor.ActorSelection
 
-class Node(id : Int, var neighbours : Seq[String] = Nil) extends Actor {
+class Node() extends Actor {
 	
+	var neighbours : Seq[ActorRef] = Nil
+	var name : String = ""
 	var visited : Boolean = false
 	
 	def receive = {
 		case AddNeighbours(newNeighbours) =>
 			neighbours = neighbours ++ newNeighbours
-
+		
 		case TextMessage(res) =>
 		  val newValue = res + 1
 		  
 			if (!visited) {				
-				println("Node " + id + " valeur : " + res)
+				println("Node " + self.path.name + " valeur : " + res)
 				neighbours.map { n =>
-				  context.actorSelection(n) ! TextMessage(newValue)
+				  n ! TextMessage(newValue)
 				}
 				visited = true
 			}	

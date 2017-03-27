@@ -25,9 +25,9 @@ class NodeSpec extends TestKit(ActorSystem("NodeSpec")) with ImplicitSender with
       val messageSent = TextMessage(id)
       val expected = TextMessage(id + 1)
       
-      val node = system.actorOf(Props(new Node(1)), name="node1")
+      val node = system.actorOf(Props(new Node()), name="node1")
       
-      node ! AddNeighbours(List(probe.ref.path.toString))
+      node ! AddNeighbours(List(probe.ref))
       node ! messageSent
       
       probe.expectMsg(expected)
